@@ -1,4 +1,15 @@
 trigger:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(7daad03d-3790-428a-96d0-9f612001aa66)'
+    appType: 'webAppLinux'
+    WebAppName: 'shan-app-1'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'sun'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|10.1'
 - master
 
 pool:
